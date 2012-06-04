@@ -295,7 +295,7 @@ class Command(NoArgsCommand):
                 hasattr(node, 'nodelist_true') and
                 hasattr(node, 'nodelist_false')):
             return node.nodelist_true + node.nodelist_false
-        return getattr(node, "nodelist", [])
+        return getattr(node, "nodelist", []) or []
 
     def walk_nodes(self, node, block_name=None):
         for node in self.get_nodelist(node):
